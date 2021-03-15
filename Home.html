@@ -1,0 +1,31 @@
+<html>
+    <body>
+        <h1>Hello</h1>
+        <table id="tb">  
+            <tr><th>Attribute</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Atrribute Name"></td>
+           <td> <input type="text" placeholder="value"></td></tr>
+        </table>
+        <button id="b1" onclick="show()">ADD
+            <button id="b2" onclick="remove()">Remove
+    </button>
+        <script>
+             let ale = document.createElement('input');
+                let alee = document.createElement('input');
+           function show()
+            {
+               
+                document.body.appendChild(ale);
+                document.body.appendChild(alee);
+            } 
+
+            function remove()
+            {
+                    ale.removeChild(ale);
+            }
+        </script>
+    </body>
+</html>
