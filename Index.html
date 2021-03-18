@@ -1,0 +1,113 @@
+<html>
+    <head>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    </head>
+	<body>
+		
+		<table> 
+			<tr>
+				<th>Attribute            </th>
+                <th>     value</th>
+				
+            </tr>
+		</table>
+        <table id="tb"></table>
+
+
+		<input type="button" value="Add Row" id="bt1" onclick="addRow()">
+        <input type="button" value="Delete Cell" id="bt2" onclick="removeRow()">
+        <input type="button" value="DisplayChart" id="bt3" onclick="displayChart()">
+
+        <div id="container">
+            <canvas id="graph"> </canvas>
+        </div>
+
+		<script>
+            var i=1;
+			function addRow()
+			{
+				
+				var tbl = document.getElementById('tb');
+
+				var lastRow = tb.rows.length;
+          		var iteration = lastRow;
+
+				var rowl = tb.insertRow(lastRow);
+         		var firstCell = rowl.insertCell(0);
+                 var atrbt = document.createElement('input');
+
+                 atrbt.type = 'text';
+                 atrbt.name = 'Attribute_' + i;
+                 atrbt.id = 'Attribute_' + i;
+                 atrbt.size = 20;
+                 atrbt.maxlength = 20;
+
+
+                 var firstCell = rowl.insertCell(0);
+				var val = document.createElement('input');
+                val.type = 'input';
+                 val.name = 'value_' + i;
+                 val.id = 'value_' + i;
+                 atrbt.size = 20;
+                 firstCell.appendChild(atrbt);
+                 //var rowr= tb.insertRow(lastRow);
+				firstCell.appendChild(val);
+
+                var tableData = document.getElementById('tb');
+               /*  while(i < tableData.row.length);
+                {
+                var objCells = tableData.rows.item(i).cells;
+                for (var j = 0; j < objCells.length; j++)
+                {
+                    var  a[]= objCells.item(j);
+                    console.log(a)
+                }
+                }
+		  i++; */
+          frm.h.value=i;
+          
+			}
+
+            function removeRow()
+            {   
+               //if (i === 3) { break; }
+                var tbl = document.getElementById('tb');
+                var lastRow = tb.rows.length;
+                var iteration = lastRow-1;
+                
+                var rowl= tb.deleteRow(iteration);
+                
+                i--;
+                
+                //var lastCell = rowl.deleteCell(lastRow);
+
+            }
+            
+            function displayChart()
+            {
+            
+            var attribute = ["Maths", "Science","History","Art"]
+            var value =[87,98,89,70]
+            var ctx = document.getElementById("graph").getContext('2d');
+            var myChart = new Chart(ctx, {
+            type: 'pie',
+            explodeOnClick: true,
+            data: {
+                labels: attribute,
+                datasets: [{
+                backgroundColor: [
+                    "#2ecc71",
+                    "#3498db",
+                    "#95a5a6",
+                    "#9b59b6",
+                    
+  ],
+  data: value
+}]
+}
+});
+}    
+             
+		</script>
+	</body>
+</html>
