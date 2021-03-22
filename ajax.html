@@ -1,0 +1,61 @@
+<html>
+
+<head>
+
+</head>
+<body>
+  
+  <table id="data">
+   <tr>
+       <td>
+           <input type="Text">
+       </td>
+       <td>
+            <input type="Text">
+       </td>
+       <td>
+             <input type="Text">
+       </td>
+       <td>
+             <input type="Text">
+       </td>
+       <td>
+        <input type="Text">
+  </td>
+     </tr>
+  
+  </table>
+  <INPUT type="button" value="Add Row" onclick="addRow('dataTable')" />
+  <INPUT type="button" value="Delete Row" onclick="deleteRow('dataTable')" />       
+  <INPUT type="button" value="Show" onclick="showContent()" />
+
+  <script>
+    function showContent()
+     {
+       var ar=new Array();
+      var table = document.getElementById("data"); 
+var totalRows = document.getElementById("data").rows.length;
+var totalCol = document.getElementById("data").rows[0].cells.length;// enter the number of columns in the table minus 1 (first column is 0 not 1)
+//To display all values
+for (var x = 0; x <= totalRows; x++)
+  {
+  for (var y = 0; y <= totalCol; y++)
+    {
+       document.write(table.rows[x].cells[y].children[0].value);
+      
+    }
+   
+  } 
+//To display a single cell value enter in the row number and column number under rows and cells below:
+//var firstCell = table.rows[0].cells[0].children[i].value;
+//alert(firstCell);
+//Note:  if you use <th> this will be row 0, so your data will start at row 1 col 0
+
+
+       
+}
+
+ 
+  </script>
+</body>
+</html>
